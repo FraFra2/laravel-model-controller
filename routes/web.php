@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Guest\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,23 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $students = [
-        'Marco',
-        'Gino',
-        'Claudia',
-    ];
-
-    $data = compact('students');
-
-    // dd($data);
-
-    return view('home', $data);
-
-    // return view('home', [
-    //     'students' => $students
-    // ]);
-});
+Route::get('/', [PageController::class, 'index']);
 
 Route::get('/contatti', function () {
     return view('contact');
